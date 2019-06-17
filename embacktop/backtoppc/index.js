@@ -1,7 +1,7 @@
-import WBacktopWap from './BacktopPc';
+import WBacktopPc from './BacktopPc';
 
-WBacktopWap.install = (Vue) => {
-  Vue.component(WBacktopWap.name, WBacktopWap);
+WBacktopPc.install = (Vue) => {
+  Vue.component(WBacktopPc.name, WBacktopPc);
 };
 
-export default WBacktopWap;
+export default WBacktopPc;

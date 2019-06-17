@@ -20,7 +20,7 @@
 </template>
 <script>
 export default {
-  name: 'WBacktop',
+  name: 'WBacktopPc',
   data() {
     return {
       complaint: {
