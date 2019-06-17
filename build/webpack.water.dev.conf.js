@@ -19,7 +19,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       {
         from: path.resolve(__dirname, '../embacktop'),
         to: '',
-        ignore: ['.*', '*.md', '.vuepress/**/*', '*.test.*', 'embacktop.js']
+        ignore: ['.*', '*.md', '.vuepress/**/*', '*.test.*']
       }
     ]),
   ]
