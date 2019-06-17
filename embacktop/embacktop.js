@@ -1,8 +1,8 @@
 // 组件
-import WBacktoppc from './backtoppc/index';
+import WBacktopPc from './backtoppc/index';
 
 const waterCpt = {
-  WBacktoppc,
+  WBacktopPc,
 };
 
 const install = (Vue) => {
