@@ -6,12 +6,12 @@
 
 
 ```` html
-<w-backtop />
+<w-backtop-pc />
 ````
 
 
-<div class="backtop-demo">
- <w-backtop
+<div class="backtop-pc-demo">
+ <w-backtop-pc
   :complaintText="complaintText"
   :qrcode="qrcode"
  />
@@ -37,7 +37,7 @@
 |qrcodeText|二维码文案。|string|否|扫码前往移动端投诉|
 
 <script>
-import WBacktop from './Backtop';
+import WBacktopPc from './BacktopPc';
 
 export default {
   data() {
@@ -47,7 +47,7 @@ export default {
     }
   },
   components: {
-    WBacktop,
+    WBacktopPc,
   },
   mounted() {
     
@@ -59,5 +59,5 @@ export default {
 }
 </script>
 <style lang="scss" scope>
-@import './assets/style/backtop.scss';
+@import './assets/style/backtoppc.scss';
 </style>

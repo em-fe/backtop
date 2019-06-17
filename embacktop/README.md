@@ -4,7 +4,7 @@ title: '返回顶部'
 description: 'Vue.js 2.x 返回顶部组件'
 heroImage: /logo.png
 actionText: 快速上手
-actionLink: /backtop/zh-cn
+actionLink: /backtoppc/zh-cn
 footer: MIT Licensed | Copyright © 2018-present 李梦龙
 ---
 

@@ -12,13 +12,6 @@ module.exports = {
   ],
   dest: './docs',
   serviceWorker: true,
-  configureWebpack: {
-    resolve: {
-      alias: {
-        assets: resolve('backtop/assets'),
-      }
-    }
-  },
   themeConfig: {
     repo: 'em-fe/backtop',
     editLinks: true,
@@ -28,7 +21,7 @@ module.exports = {
     editLinkText: '帮助我们改善此页面！',
     sidebar: [
       '/',
-      '/backtop/zh-cn',
+      '/backtoppc/zh-cn',
     ]
   }
 };
