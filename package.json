@@ -107,7 +107,7 @@
     "shelljs": "^0.8.1",
     "stylelint-webpack-plugin": "^0.10.4",
     "url-loader": "^1.0.1",
-    "vue-loader": "^15.0.10",
+    "vue-loader": "^14.2.2",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "2.5.16",
     "webpack": "^4.12.0",

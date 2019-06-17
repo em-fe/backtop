@@ -6,7 +6,7 @@ module.exports = {
     'vue'
   ],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/embacktop/$1'
+    '^@/(.*)$': '<rootDir>/water/$1'
   },
   transform: {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
@@ -17,6 +17,6 @@ module.exports = {
   "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js)$",
   collectCoverage: true,
   collectCoverageFrom: [
-    'embacktop/**/*.{vue}'
+    'water/**/*.{vue}'
   ]
 }
