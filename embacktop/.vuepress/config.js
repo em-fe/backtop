@@ -2,7 +2,7 @@ const path = require('path');
 
 const resolve = p => path.resolve(__dirname, '../', p);
 
-const base = process.env.GH ? '/backtoppc/' : '/';
+const base = process.env.GH ? '/backtop/' : '/';
 
 module.exports = {
   title: '返回顶部',
