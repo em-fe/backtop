@@ -13,7 +13,6 @@
 <div class="backtop-pc-demo">
  <w-backtop-pc
   :complaintText="complaintText"
-  :qrcode="qrcode"
  />
     <p>这是一段文字</p>
  		<p>这是一段文字</p>
@@ -33,7 +32,6 @@
 |---|----|---|-------|-----|
 |complaintText|投诉文案。|string|否|投诉|
 |topText|返回顶部文案。|string|否|TOP|
-|qrcode|投诉二维码。|string|否|默认二维码|
 |qrcodeText|二维码文案。|string|否|扫码前往移动端投诉|
 
 <script>
@@ -43,7 +41,6 @@ export default {
   data() {
     return {
       complaintText: '投诉二维码',
-      qrcode: 'http://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560495268534&di=0006d51997ddfb49493a58f47edf68aa&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F54ebececeda0217648263cc944d6cfd413a17cdf2cc6-MGHS0y_fw658',
     }
   },
   components: {

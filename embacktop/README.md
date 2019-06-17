@@ -8,7 +8,7 @@ actionLink: /backtoppc/zh-cn
 footer: MIT Licensed | Copyright © 2018-present 李梦龙
 ---
 
-### 让组件更方便
+### 安装
 
 ``` bash
 yarn add embacktop
