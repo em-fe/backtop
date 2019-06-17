@@ -29,7 +29,6 @@ module.exports = {
     extensions: ['.js', '.md', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      assets: resolve('embacktop/backtop/assets'),
     }
   },
   performance: {

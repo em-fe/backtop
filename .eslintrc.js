@@ -19,7 +19,7 @@ module.exports = {
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "build/webpack.embacktop.base.conf.js"
+        "config": "build/webpack.water.base.conf.js"
       }
     }
   },

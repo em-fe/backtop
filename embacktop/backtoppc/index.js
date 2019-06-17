@@ -1,4 +1,4 @@
-import WBacktopWap from './Backtop';
+import WBacktopWap from './BacktopPc';
 
 WBacktopWap.install = (Vue) => {
   Vue.component(WBacktopWap.name, WBacktopWap);
