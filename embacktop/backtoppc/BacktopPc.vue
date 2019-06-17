@@ -42,9 +42,6 @@ export default {
       type: String,
       default: 'TOP',
     },
-    qrcode: {
-      type: String,
-    },
     qrcodeText: {
       type: String,
       default: '扫码前往移动端投诉',
