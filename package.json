@@ -140,5 +140,8 @@
   },
   "pre-commit": [
     "lint-staged"
-  ]
+  ],
+  "dependencies": {
+    "qrcodejs2": "^0.0.2"
+  }
 }
