@@ -21,7 +21,8 @@
   </div>
 </template>
 <script>
-import QRCode from 'qrcodejs2'
+import QRCode from 'qrcodejs2';
+
 export default {
   name: 'WBacktopPc',
   data() {
@@ -48,7 +49,7 @@ export default {
       type: String,
       default: '扫码前往移动端投诉',
     },
-    qrcodeImg:  {
+    qrcodeImg: {
       type: String,
       default: '',
     },
@@ -68,10 +69,10 @@ export default {
       type: String,
       default: 'event',
     },
-    productId:{
+    productId: {
       type: Number,
       default: null,
-    }
+    },
   },
   methods: {
     backTopMethod() {
@@ -116,13 +117,14 @@ export default {
         this.showFlag = false;
       }
     },
-    qrcode () {
-      let qrcode = new QRCode('qrcode',{
+    qrcode() {
+      /* eslint-disable no-new */
+      new QRCode('qrcode', {
         width: 112, // 设置宽度，单位像素
         height: 112, // 设置高度，单位像素
-        text: `${this.domainName}/wap/complaint?org_id=${this.orgId}${this.productId ? `&product_id=${this.productId}` : ''}${this.productType ? `&product_type=${this.productType}` : ''}${this.userId ? `&user_id=${this.userId}` : ''}` // 设置二维码内容或跳转地址
-      })
-    }
+        text: `${this.domainName}/wap/complaint?org_id=${this.orgId}${this.productId ? `&product_id=${this.productId}` : ''}${this.productType ? `&product_type=${this.productType}` : ''}${this.userId ? `&user_id=${this.userId}` : ''}`, // 设置二维码内容或跳转地址
+      });
+    },
   },
   mounted() {
     this.watchScroll();
@@ -132,10 +134,10 @@ export default {
   },
   watch: {
     domainName: {
-      handler(val) {
+      handler() {
         this.$nextTick(() => {
-          this.qrcode()
-        })
+          this.qrcode();
+        });
       },
       deep: true,
       immediate: true,
