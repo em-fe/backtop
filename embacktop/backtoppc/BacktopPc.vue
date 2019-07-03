@@ -56,7 +56,7 @@ export default {
     qrcodeUrl: {
       type: String,
       default: '',
-    }
+    },
   },
   methods: {
     backTopMethod() {
