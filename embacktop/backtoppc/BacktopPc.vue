@@ -119,7 +119,7 @@ export default {
   watch: {
     qrcodeUrl: {
       handler() {
-        if (this.qrcodeUrl){
+        if (this.qrcodeUrl) {
           this.$nextTick(() => {
             this.qrcode();
           });
