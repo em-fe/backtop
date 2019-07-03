@@ -6,8 +6,27 @@
 
 
 ```` html
-<w-backtop-pc />
+<w-backtop-pc
+  :complaintText="complaintText"
+  :domainName="domainName"
+ />
 ````
+
+``` js
+import WBacktopPc from './BacktopPc';
+
+export default {
+  data() {
+    return {
+      complaintText: '投诉二维码',
+      domainName:'http:baidu.com'
+    }
+  },
+  components: {
+    WBacktopPc,
+  },
+}
+```
 
 
 <div class="backtop-pc-demo">
@@ -15,16 +34,6 @@
   :complaintText="complaintText"
   :domainName="domainName"
  />
-    <p>这是一段文字</p>
- 		<p>这是一段文字</p>
- 		<p>这是一段文字</p>
- 		<p>这是一段文字</p>
- 		<p>这是一段文字</p>
- 		<p>这是一段文字</p>
- 		<p>这是一段文字</p>
- 		<p>这是一段文字</p>
- 		<p>这是一段文字</p>
- 		<p>这是一段文字</p>
  </div>
 
 ## API
