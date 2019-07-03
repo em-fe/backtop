@@ -5,9 +5,9 @@
       <img v-show="complaint.hoverFlag" src="./assets/img/complaint-hover.png" alt="complaintIcon" class="backtop-pc-item-complaint">
       <div>{{complaintText}}</div>
       <div class="backtop-pc-item-qrcode" :class="{'backtop-pc-item-qrcode-fadein':complaint.hoverFlag}" @mouseover.stop @mouseout.stop>
-        <img class="backtop-pc-item-qrcode-img" v-if="!qrcodeImg&&!domainName" src="./assets/img/qrcode.png" alt="qrcode">
-        <img class="backtop-pc-item-qrcode-img" v-if="qrcodeImg&&!domainName" :src="qrcodeImg" alt="qrcode">
-        <div id="qrcode" ref="qrcode" class="backtop-pc-item-qrcode-creatimg" v-if="domainName"></div>
+        <img class="backtop-pc-item-qrcode-img" v-if="!qrcodeImg&&!qrcodeUrl" src="./assets/img/qrcode.png" alt="qrcode">
+        <img class="backtop-pc-item-qrcode-img" v-if="qrcodeImg&&!qrcodeUrl" :src="qrcodeImg" alt="qrcode">
+        <div id="qrcode" ref="qrcode" class="backtop-pc-item-qrcode-creatimg" v-if="qrcodeUrl"></div>
 
         <div class="backtop-pc-item-qrcode-text">{{qrcodeText}}</div>
         <div class="backtop-pc-item-qrcode-right"></div>
@@ -53,25 +53,9 @@ export default {
       type: String,
       default: '',
     },
-    domainName: {
+    qrcodeUrl: {
       type: String,
       default: '',
-    },
-    orgId: {
-      type: Number,
-      default: null,
-    },
-    userId: {
-      type: Number,
-      default: null,
-    },
-    productType: {
-      type: String,
-      default: 'event',
-    },
-    productId: {
-      type: Number,
-      default: null,
     },
   },
   methods: {
@@ -122,7 +106,7 @@ export default {
       new QRCode('qrcode', {
         width: 112, // 设置宽度，单位像素
         height: 112, // 设置高度，单位像素
-        text: `${this.domainName}/wap/complaint?org_id=${this.orgId}${this.productId ? `&product_id=${this.productId}` : ''}${this.productType ? `&product_type=${this.productType}` : ''}${this.userId ? `&user_id=${this.userId}` : ''}`, // 设置二维码内容或跳转地址
+        text: `${this.qrcodeUrl}`, // 设置二维码内容或跳转地址
       });
     },
   },
@@ -133,11 +117,13 @@ export default {
     };
   },
   watch: {
-    domainName: {
+    qrcodeUrl: {
       handler() {
-        this.$nextTick(() => {
-          this.qrcode();
-        });
+        if (this.qrcodeUrl) {
+          this.$nextTick(() => {
+            this.qrcode();
+          });
+        }
       },
       deep: true,
       immediate: true,
