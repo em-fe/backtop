@@ -5,7 +5,9 @@
       <img v-show="complaint.hoverFlag" src="./assets/img/complaint-hover.png" alt="complaintIcon" class="backtop-pc-item-complaint">
       <div>{{complaintText}}</div>
       <div class="backtop-pc-item-qrcode" :class="{'backtop-pc-item-qrcode-fadein':complaint.hoverFlag}" @mouseover.stop @mouseout.stop>
-        <img class="backtop-pc-item-qrcode-img" src="./assets/img/qrcode.png" alt="qrcode">
+        <img class="backtop-pc-item-qrcode-img" v-if="!qrcodeImg&&!domainName" src="./assets/img/qrcode.png" alt="qrcode">
+        <img class="backtop-pc-item-qrcode-img" v-if="qrcodeImg&&!domainName" :src="qrcodeImg" alt="qrcode">
+        <div id="qrcode" ref="qrcode" class="backtop-pc-item-qrcode-creatimg" v-if="domainName"></div>
 
         <div class="backtop-pc-item-qrcode-text">{{qrcodeText}}</div>
         <div class="backtop-pc-item-qrcode-right"></div>
@@ -19,6 +21,7 @@
   </div>
 </template>
 <script>
+import QRCode from 'qrcodejs2'
 export default {
   name: 'WBacktopPc',
   data() {
@@ -30,7 +33,6 @@ export default {
         hoverFlag: false,
       },
       showFlag: false,
-      qrcodeImg: 'qrcode.png',
     };
   },
   props: {
@@ -46,6 +48,30 @@ export default {
       type: String,
       default: '扫码前往移动端投诉',
     },
+    qrcodeImg:  {
+      type: String,
+      default: '',
+    },
+    domainName: {
+      type: String,
+      default: '',
+    },
+    orgId: {
+      type: Number,
+      default: null,
+    },
+    userId: {
+      type: Number,
+      default: null,
+    },
+    productType: {
+      type: String,
+      default: 'event',
+    },
+    productId:{
+      type: Number,
+      default: null,
+    }
   },
   methods: {
     backTopMethod() {
@@ -90,6 +116,13 @@ export default {
         this.showFlag = false;
       }
     },
+    qrcode () {
+      let qrcode = new QRCode('qrcode',{
+        width: 112, // 设置宽度，单位像素
+        height: 112, // 设置高度，单位像素
+        text: `${this.domainName}/wap/complaint?org_id=${this.orgId}${this.productId ? `&product_id=${this.productId}` : ''}${this.productType ? `&product_type=${this.productType}` : ''}${this.userId ? `&user_id=${this.userId}` : ''}` // 设置二维码内容或跳转地址
+      })
+    }
   },
   mounted() {
     this.watchScroll();
@@ -98,9 +131,11 @@ export default {
     };
   },
   watch: {
-    qrcode: {
+    domainName: {
       handler(val) {
-        this.qrcode = val;
+        this.$nextTick(() => {
+          this.qrcode()
+        })
       },
       deep: true,
       immediate: true,
