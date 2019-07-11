@@ -143,6 +143,6 @@
     "lint"
   ],
   "dependencies": {
-    "qrcodejs2": "^0.0.2"
+    "em-underline": "^1.2.4"
   }
 }

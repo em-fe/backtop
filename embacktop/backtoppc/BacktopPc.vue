@@ -5,9 +5,8 @@
       <img v-show="complaint.hoverFlag" src="./assets/img/complaint-hover.png" alt="complaintIcon" class="backtop-pc-item-complaint">
       <div>{{complaintText}}</div>
       <div class="backtop-pc-item-qrcode" :class="{'backtop-pc-item-qrcode-fadein':complaint.hoverFlag}" @mouseover.stop @mouseout.stop>
-        <img class="backtop-pc-item-qrcode-img" v-if="!qrcodeImg&&!qrcodeUrl" src="./assets/img/qrcode.png" alt="qrcode">
-        <img class="backtop-pc-item-qrcode-img" v-if="qrcodeImg&&!qrcodeUrl" :src="qrcodeImg" alt="qrcode">
-        <div id="qrcode" ref="qrcode" class="backtop-pc-item-qrcode-creatimg" v-if="qrcodeUrl"></div>
+        <img class="backtop-pc-item-qrcode-img" v-if="!qrcodeImg" src="./assets/img/qrcode.png" alt="qrcode">
+        <img class="backtop-pc-item-qrcode-img" v-if="qrcodeImg" :src="qrcodeImg" alt="qrcode">
 
         <div class="backtop-pc-item-qrcode-text">{{qrcodeText}}</div>
         <div class="backtop-pc-item-qrcode-right"></div>
@@ -21,7 +20,6 @@
   </div>
 </template>
 <script>
-import QRCode from 'qrcodejs2';
 
 export default {
   name: 'WBacktopPc',
@@ -50,10 +48,6 @@ export default {
       default: '扫码前往移动端投诉',
     },
     qrcodeImg: {
-      type: String,
-      default: '',
-    },
-    qrcodeUrl: {
       type: String,
       default: '',
     },
@@ -101,33 +95,12 @@ export default {
         this.showFlag = false;
       }
     },
-    qrcode() {
-      /* eslint-disable no-new */
-      new QRCode('qrcode', {
-        width: 112, // 设置宽度，单位像素
-        height: 112, // 设置高度，单位像素
-        text: `${this.qrcodeUrl}`, // 设置二维码内容或跳转地址
-      });
-    },
   },
   mounted() {
     this.watchScroll();
     window.onscroll = () => {
       this.watchScroll();
     };
-  },
-  watch: {
-    qrcodeUrl: {
-      handler() {
-        if (this.qrcodeUrl) {
-          this.$nextTick(() => {
-            this.qrcode();
-          });
-        }
-      },
-      deep: true,
-      immediate: true,
-    },
   },
 };
 </script>
