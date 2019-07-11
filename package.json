@@ -142,7 +142,5 @@
     "lint-staged",
     "lint"
   ],
-  "dependencies": {
-    "em-underline": "^1.2.4"
-  }
+  "dependencies": {}
 }
